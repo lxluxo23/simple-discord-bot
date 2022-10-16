@@ -1,8 +1,10 @@
+require('dotenv').config()
 const { Client, GatewayIntentBits, REST } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+const token = process.env.TOKEN
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`)
+    console.log(`Logueado en el bot csm  ${client.user.tag}!`)
 });
 
 client.on('interactionCreate', async interaction => {
@@ -31,15 +33,21 @@ client.on('interactionCreate', async interaction => {
 
 
     if (commandName === 'lushoql') {
-        for (i = 0; i < 10; i++) {
+        console.log("comando lusho ql")
+        for (i = 0; i < 10;) {
             try {
 
-                await client.users.fetch('387294595479896065', false).then((user) => {
-                    user.send('weta qlo');
-                });
+                setTimeout(() => {
+                    client.users.fetch('387294595479896065', false).then((user) => {
+                        user.send('weta qlo');
+                    });
+                }, 2000);
+
+
             } catch (error) {
                 console.error("error en el comando")
             }
+            i++
         }
 
 
@@ -58,4 +66,4 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login("Njk2Nzk1OTM4MzQ1MzIwNDc5.GfwBNA.UDlFpv1sRfUPshiFkORlRFhfN8ge9lygGk_PMA")
+client.login(token)

@@ -1,5 +1,8 @@
 const { REST, Routes } = require('discord.js');
+require('dotenv').config()
+const token = process.env.TOKEN
 
+console.log(token)
 const commands = [
     {
         name: 'pipazo',
@@ -15,7 +18,7 @@ const commands = [
     }
 ];
 
-const rest = new REST({ version: '10' }).setToken("Njk2Nzk1OTM4MzQ1MzIwNDc5.GfwBNA.UDlFpv1sRfUPshiFkORlRFhfN8ge9lygGk_PMA");
+const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
     try {

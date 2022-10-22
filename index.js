@@ -29,7 +29,24 @@ client.on('interactionCreate', async interaction => {
             console.error("error en el comando ")
         }
     }
+    if (commandName === 'yo') {
+        console.log("prueba comandios")
+        interaction.reply('comandos prueba');
+        try {
+            for (i = 0; i < 10;) {
+                setTimeout(() => {
+                    client.users.fetch('268003611173191681', false).then((user) => {
+                        user.send('wn wn wn ');
+                    });
+                }, 2000);
+                i++
+            }
 
+
+        } catch (error) {
+            console.error("error en el comando ")
+        }
+    }
 
 
     if (commandName === 'lushoql') {

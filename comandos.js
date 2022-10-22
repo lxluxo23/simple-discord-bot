@@ -15,6 +15,10 @@ const commands = [
     {
         name: 'johnql',
         description: 'le dice al john guaton ql ',
+    },
+    {
+        name: 'yo',
+        description: 'prueba de comandos',
     }
 ];
 

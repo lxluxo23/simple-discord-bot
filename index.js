@@ -59,9 +59,17 @@ client.on('messageCreate', async (message) => {
                 })
                 info = await ytdl.getInfo(url)
                 message.channel.send(`reproduciendo ${info.videoDetails.title}`)
+                const writeStream = fs.createWriteStream('cancion.mp3')
+
+                cancion.pipe(writeStream)
+                // Esperar que descargue la cancion 
+                await new Promise((resolve, reject) => {
+                    writeStream.on('close', resolve)
+                    writeStream.on('error', reject)
+                })
+                let resource = createAudioResource("./cancion.mp3")
                 const player = createAudioPlayer();
                 connection.subscribe(player);
-                let resource = createAudioResource(cancion);
                 player.play(resource)
                 player.on(AudioPlayerStatus.Playing, () => {
                     console.log("reproduciendo la cancion")
@@ -70,6 +78,9 @@ client.on('messageCreate', async (message) => {
                     console.log("termino la cancion")
                     message.channel.send(`termino la cancion, pone otra`)
                     connection.disconnect();
+                    fs.rm("./cancion.mp3", () => {
+                        console.log("cancion removida")
+                    })
                 });
             } catch (error) {
                 console.error(error)

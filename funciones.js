@@ -7,9 +7,9 @@ const {
     createAudioResource
 } = require('@discordjs/voice');
 async function playCancion(url, connection, channel) {
-
-
-    if (url) {
+    console.log(ytdl.validateURL(url));
+    valido = ytdl.validateURL(url)
+    if (ytdl.validateURL(url) == true) {
         try {
             cancion = await ytdl(url, {
                 filter: 'audioonly'
@@ -49,6 +49,7 @@ async function playCancion(url, connection, channel) {
         }
     }
     else {
+        channel.send('Video no valido');
         return
     }
 

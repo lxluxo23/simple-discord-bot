@@ -17,7 +17,7 @@ const {
 } = require('@discordjs/voice');
 const token = process.env.TOKEN
 
-let cola = []
+global.cola = []
 
 client.on('ready', () => {
     console.log(`Logueado en el bot  ${client.user.tag}!`)

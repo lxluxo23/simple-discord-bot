@@ -6,15 +6,15 @@ console.log(token)
 const commands = [
     {
         name: 'pipazo',
-        description: 'le dice al pipazo pelmazo ql',
+        description: 'le dice al pipazo pelmazo',
     },
     {
         name: 'lushoql',
-        description: 'le dice al lusho weta qlo',
+        description: 'le dice al lusho weta',
     },
     {
         name: 'johnql',
-        description: 'le dice al john guaton ql ',
+        description: 'le dice al john guaton',
     },
     {
         name: 'yo',

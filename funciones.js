@@ -54,4 +54,6 @@ async function playCancion(url, connection, channel) {
     }
 
 }
-module.exports = playCancion
+module.exports = {
+    playCancion
+}
